@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Dossier Mission: Indice Verrouillé</title>
+  <style>
+    body {
+      background-color: #000;
+      color: #f00;
+      font-family: 'Courier New', Courier, monospace;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+      background-image: url('https://i.ibb.co/XC0sY4y/mission-bg.jpg'); /* arrière-plan type dossier confidentiel */
+      background-size: cover;
+      background-position: center;
+    }
+
+    .container {
+      background-color: rgba(0, 0, 0, 0.8);
+      padding: 30px;
+      border: 2px solid red;
+      text-align: center;
+      border-radius: 10px;
+      box-shadow: 0 0 20px red;
+      max-width: 600px;
+    }
+
+    input[type="text"] {
+      padding: 10px;
+      font-size: 18px;
+      border: 2px solid red;
+      background-color: black;
+      color: red;
+      width: 80%;
+    }
+
+    button {
+      padding: 10px 20px;
+      font-size: 18px;
+      background-color: red;
+      border: none;
+      color: black;
+      cursor: pointer;
+      margin-top: 10px;
+    }
+
+    .hidden-content {
+      display: none;
+      margin-top: 20px;
+      color: #0f0;
+      background-color: black;
+      padding: 20px;
+      border: 1px solid green;
+      border-radius: 5px;
+      animation: openFile 1s ease-in-out forwards;
+    }
+
+    @keyframes openFile {
+      0% { opacity: 0; transform: scale(0.9); }
+      100% { opacity: 1; transform: scale(1); }
+    }
+
+    h1 {
+      font-size: 26px;
+      color: #f00;
+      text-shadow: 0 0 10px red;
+    }
+
+    .dossier-img {
+      max-width: 100%;
+      border: 2px solid green;
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>🔐 Dossier Mission: Impossible</h1>
+    <p>Quel était l'arrêt précédent ?</p>
+    <input type="text" id="passwordInput" placeholder="Entrez votre réponse...">
+    <br>
+    <button onclick="checkPassword()">Déverrouiller</button>
+
+    <div class="hidden-content" id="hiddenContent">
+      <h2>🕵️‍♂️ Indice débloqué :</h2>
+      <p>Bravo agent. Voici l’indice suivant :<br><strong>“Cherche là où Daudet rêvait du mistral.”</strong></p>
+      <img src="https://i.ibb.co/NnDQPL2/dossier-ouvert.jpg" alt="Dossier secret ouvert" class="dossier-img">
+    </div>
+  </div>
+
+  <script>
+    function checkPassword() {
+      const correctPassword = "Kennedy"; // à modifier selon l'arrêt précédent
+      const userInput = document.getElementById("passwordInput").value.trim();
+
+      if (userInput.toLowerCase() === correctPassword.toLowerCase()) {
+        document.getElementById("hiddenContent").style.display = "block";
+      } else {
+        alert("Accès refusé. Mauvais mot de passe.");
+      }
+    }
+  </script>
+</body>
+</html>
